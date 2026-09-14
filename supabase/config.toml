@@ -1,0 +1,28 @@
+project_id = "ceremo-link"
+
+[api]
+enabled = true
+
+[db]
+port = 54322
+major_version = 15
+
+[db.seed]
+enabled = true
+sql_paths = ["./seed.sql"]
+
+[studio]
+enabled = true
+port = 54323
+
+[auth]
+enabled = true
+site_url = "http://localhost:3001"
+additional_redirect_urls = [
+  "http://localhost:3001/auth/callback",
+  "http://127.0.0.1:3001/auth/callback",
+]
+
+[auth.email]
+enable_signup = true
+enable_confirmations = false

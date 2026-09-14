@@ -1,26 +1,132 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-gothic);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-mincho);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-funeral: var(--funeral);
+  --color-funeral-foreground: var(--funeral-foreground);
+  --color-funeral-soft: var(--funeral-soft);
+  --color-freelancer: var(--freelancer);
+  --color-freelancer-foreground: var(--freelancer-foreground);
+  --color-freelancer-soft: var(--freelancer-soft);
+  --color-required: var(--required);
+  --color-surface: var(--surface);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* Brand surfaces */
+  --background: #f7f6fa;
+  --surface: #ffffff;
+  --foreground: #2a2733;
+  --card: #ffffff;
+  --card-foreground: #2a2733;
+  --popover: #ffffff;
+  --popover-foreground: #2a2733;
+
+  /* Default primary follows funeral purple for shared chrome */
+  --primary: #4a3e7f;
+  --primary-foreground: #ffffff;
+  --secondary: #efeef5;
+  --secondary-foreground: #4a3e7f;
+  --muted: #eeeef2;
+  --muted-foreground: #5c5868;
+  --accent: #f3f0f8;
+  --accent-foreground: #4a3e7f;
+  --destructive: #b42318;
+  --required: #b42318;
+  --border: #ddd8e6;
+  --input: #d5d0e0;
+  --ring: #4a3e7f;
+
+  --funeral: #4a3e7f;
+  --funeral-foreground: #ffffff;
+  --funeral-soft: #f3f0f8;
+  --freelancer: #2f6b4f;
+  --freelancer-foreground: #ffffff;
+  --freelancer-soft: #eff6f1;
+
+  --chart-1: #4a3e7f;
+  --chart-2: #2f6b4f;
+  --chart-3: #7a7199;
+  --chart-4: #5a8f74;
+  --chart-5: #b42318;
+  --radius: 0.75rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #2a2733;
+  --sidebar-primary: #4a3e7f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f3f0f8;
+  --sidebar-accent-foreground: #4a3e7f;
+  --sidebar-border: #ddd8e6;
+  --sidebar-ring: #4a3e7f;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground text-base leading-relaxed antialiased;
+    font-family: var(--font-gothic), "Hiragino Sans", "Noto Sans JP", sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  .font-heading {
+    font-family: var(--font-mincho), "Hiragino Mincho ProN", "Noto Serif JP",
+      serif;
+    letter-spacing: 0.02em;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .tap-target {
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+  }
+  .page-shell {
+    @apply mx-auto w-full max-w-3xl px-4;
+  }
 }
